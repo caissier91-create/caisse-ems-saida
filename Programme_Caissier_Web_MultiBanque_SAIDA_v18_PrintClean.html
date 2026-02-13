@@ -1,0 +1,1812 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EURL EAU MINERAL SAIDA – Caisse</title>
+  
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap");
+
+    :root{
+      --bg:#e9f0f7;
+      --bg-2:#dbe8f4;
+      --surface:#ffffff;
+      --surface-soft:#f5f9fd;
+      --text:#0d1f33;
+      --muted:#4f6479;
+      --line:#d8e3ef;
+      --brand:#0f5b8f;
+      --brand-strong:#0a446d;
+      --accent:#14855d;
+      --danger:#b42318;
+      --shadow:0 18px 38px rgba(11, 44, 71, .11);
+      --shadow-soft:0 10px 20px rgba(15, 52, 82, .08);
+      --radius:20px;
+      --radius-sm:14px;
+      font-family:"IBM Plex Sans Arabic","Cairo","Segoe UI",Tahoma,sans-serif;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 500px at 8% -10%, rgba(15,91,143,.18), transparent 58%),
+        radial-gradient(900px 460px at 90% 0%, rgba(20,133,93,.14), transparent 60%),
+        linear-gradient(160deg, var(--bg), #eef4fb 45%, #f4f8fc 100%);
+      min-height:100vh;
+      position:relative;
+      overflow-x:hidden;
+    }
+    body::before,
+    body::after{
+      content:"";
+      position:fixed;
+      pointer-events:none;
+      z-index:-1;
+      border-radius:999px;
+      filter:blur(10px);
+    }
+    body::before{
+      width:420px;height:420px;
+      left:-130px;top:28%;
+      background:rgba(16,94,145,.14);
+    }
+    body::after{
+      width:360px;height:360px;
+      right:-110px;top:52%;
+      background:rgba(22,136,98,.12);
+    }
+    a{color:inherit; text-decoration:none;}
+
+    .topbar{
+      width:min(1380px, calc(100% - 24px));
+      margin:12px auto 0;
+      padding:14px 18px;
+      color:#fff;
+      background:linear-gradient(125deg, var(--brand-strong), #0f6296 55%, #147f63 100%);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:22px;
+      box-shadow:0 18px 34px rgba(8, 44, 73, .26);
+      position:sticky;
+      top:8px;
+      z-index:40;
+      backdrop-filter:blur(10px);
+    }
+    .topbar .rowbar{
+      max-width:1320px;
+      margin:0 auto;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brandbox{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      min-width:260px;
+    }
+    .brandbox img{
+      height:48px;
+      width:auto;
+      border-radius:14px;
+      padding:5px;
+      background:#fff;
+      box-shadow:0 6px 16px rgba(0,0,0,.24);
+    }
+    .brandbox .titles{line-height:1.12;}
+    .brandbox .titles .t1{
+      font-size:17px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .brandbox .titles .t2{
+      font-size:12px;
+      opacity:.92;
+      margin-top:2px;
+    }
+
+    .top-actions{gap:8px;}
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.28);
+      font-size:12px;
+      white-space:nowrap;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.16);
+    }
+    .chip .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:#b9f5dc;
+      box-shadow:0 0 0 4px rgba(185,245,220,.2);
+    }
+    .chip b{font-weight:800;}
+
+    .wrap{
+      max-width:1380px;
+      margin:16px auto 20px;
+      padding:10px 12px 22px;
+    }
+    .grid{
+      display:grid;
+      gap:14px;
+      grid-template-columns:1fr;
+      align-items:start;
+    }
+    @media (min-width: 1200px){
+      .grid{grid-template-columns:250px 360px 1fr 420px;}
+    }
+
+    .card{
+      background:linear-gradient(165deg, #ffffff, var(--surface-soft));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      position:relative;
+      overflow:hidden;
+      animation:riseIn .55s cubic-bezier(.22,.61,.36,1) both;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:auto 12px 0 12px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(15,91,143,.24), transparent);
+      opacity:.25;
+    }
+    .card:hover{
+      transform:translateY(-1px);
+      box-shadow:var(--shadow);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:nth-child(2){animation-delay:.04s;}
+    .card:nth-child(3){animation-delay:.08s;}
+    .card:nth-child(4){animation-delay:.12s;}
+    .card:nth-child(5){animation-delay:.16s;}
+    .card:nth-child(6){animation-delay:.2s;}
+    .card:nth-child(7){animation-delay:.24s;}
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:15px;
+      letter-spacing:.2px;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      color:#0f3555;
+    }
+    .sub{
+      font-size:12px;
+      color:var(--muted);
+      margin-top:-2px;
+      margin-bottom:10px;
+    }
+
+    .row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:flex-end;
+    }
+    label{
+      display:block;
+      margin-bottom:5px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    input, select, textarea{
+      width:auto;
+      border:1px solid #c9d9ea;
+      border-radius:12px;
+      padding:10px 11px;
+      font-size:14px;
+      font-family:inherit;
+      background:#ffffff;
+      color:var(--text);
+      transition:border-color .18s ease, box-shadow .18s ease, transform .1s ease;
+    }
+    input[type="number"]{width:150px;}
+    input[type="date"], input[type="time"]{width:170px;}
+    input:focus, select:focus, textarea:focus{
+      outline:none;
+      border-color:#5f9ecf;
+      box-shadow:0 0 0 4px rgba(95,158,207,.2);
+    }
+
+    button{
+      border:1px solid transparent;
+      border-radius:12px;
+      padding:10px 13px;
+      font-size:14px;
+      font-weight:700;
+      font-family:inherit;
+      cursor:pointer;
+      white-space:nowrap;
+      background:linear-gradient(135deg, var(--brand), #146ea7);
+      color:#fff;
+      box-shadow:0 8px 18px rgba(15,91,143,.24);
+      transition:transform .12s ease, filter .15s ease, box-shadow .15s ease;
+    }
+    button:hover{
+      filter:brightness(1.04);
+      transform:translateY(-1px);
+      box-shadow:0 10px 18px rgba(15,91,143,.3);
+    }
+    button:active{transform:translateY(0);}
+    button.secondary{
+      background:linear-gradient(180deg, #ffffff, #eef5fc);
+      color:#0f3555;
+      border-color:#c8d7e8;
+      box-shadow:none;
+    }
+    button.secondary:hover{
+      border-color:#97b8d9;
+      box-shadow:0 6px 14px rgba(16,70,109,.13);
+    }
+    button.danger{
+      background:linear-gradient(135deg, #d63a2a, #b42318);
+      box-shadow:0 10px 18px rgba(180,35,24,.26);
+    }
+    button.ghost{
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border-color:rgba(255,255,255,.34);
+      border-radius:999px;
+      padding:8px 11px;
+      font-size:12px;
+      box-shadow:none;
+    }
+    button.ghost:hover{
+      background:rgba(255,255,255,.2);
+      border-color:rgba(255,255,255,.48);
+      box-shadow:none;
+    }
+
+    .small{font-size:12px;color:var(--muted);}
+    .mono{font-family:ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;}
+    .ok{color:var(--accent);font-weight:800;}
+    .bad{color:var(--danger);font-weight:800;}
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 11px;
+      border-radius:999px;
+      font-size:12px;
+      background:#edf5fc;
+      color:#103a5d;
+      border:1px solid #d4e2f0;
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.7);
+    }
+    .pill .k{color:#70879e;}
+
+    table{width:100%;border-collapse:separate;border-spacing:0;}
+    th, td{
+      padding:10px 10px;
+      border-bottom:1px solid #e7eef6;
+      text-align:right;
+      vertical-align:top;
+      font-size:13px;
+    }
+    thead th{
+      position:sticky;
+      top:0;
+      z-index:2;
+      background:#f4f8fd;
+      border-bottom:1px solid #d8e5f1;
+      color:#274664;
+      font-size:12px;
+      letter-spacing:.1px;
+    }
+    tbody tr:hover td{background:#f7fbff;}
+    .tablewrap{
+      max-height:340px;
+      overflow:auto;
+      border:1px solid #e4edf7;
+      border-radius:14px;
+      background:#fff;
+    }
+
+    .tabs{display:flex;gap:8px;flex-wrap:wrap;}
+    .tab{
+      padding:8px 13px;
+      border-radius:999px;
+      border:1px solid #bfd2e5;
+      background:#fff;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:700;
+      user-select:none;
+      color:#154d79;
+      transition:all .16s ease;
+    }
+    .tab:hover{border-color:#8fb4d5;background:#f5faff;}
+    .tab.active{
+      border-color:transparent;
+      color:#fff;
+      background:linear-gradient(135deg, var(--brand), #1672ac);
+      box-shadow:0 8px 16px rgba(15,91,143,.28);
+    }
+    .bank-bar{
+      height:9px;
+      border-radius:999px;
+      margin:8px 0 12px;
+      background:var(--brand);
+      box-shadow:0 6px 14px rgba(15,91,143,.24);
+    }
+
+    #nav{
+      color:#fff;
+      background:linear-gradient(170deg, #0f4268, #0b4e79 62%, #127159 100%);
+      border-color:rgba(255,255,255,.22);
+      box-shadow:0 16px 28px rgba(11, 54, 87, .3);
+    }
+    #nav h2{color:#fff;}
+    #nav .sub,
+    #nav .small{color:rgba(241,247,253,.86);}
+    #nav a.pill{
+      width:100%;
+      justify-content:flex-start;
+      background:rgba(255,255,255,.14);
+      border-color:rgba(255,255,255,.28);
+      color:#f9fcff;
+      transition:transform .14s ease, background .14s ease;
+    }
+    #nav a.pill:hover{
+      background:rgba(255,255,255,.24);
+      transform:translateX(-2px);
+    }
+    #nav .pill .k{color:#d7eaf8;}
+
+    @keyframes riseIn{
+      from{opacity:0;transform:translateY(14px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    .print-area{display:none;direction:ltr;font-family:Arial,sans-serif;}
+    .print-area h1{margin:0 0 4px;font-size:18px;}
+    .print-area h2{margin:10px 0 6px;font-size:14px;}
+    .print-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;}
+    .print-box{border:1px solid #ddd;padding:8px;border-radius:8px;}
+    .print-table{border-collapse:collapse;width:100%;}
+    .print-table th, .print-table td{border:1px solid #ddd;padding:6px;font-size:12px;text-align:left;}
+    .stamp{
+      width:140px;height:140px;border:3px solid #b42318;border-radius:999px;
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      color:#b42318;font-weight:800;font-size:11px;line-height:1.2;transform:rotate(-8deg);
+    }
+
+    @page{size:A4;margin:10mm;}
+    #printBord{font-size:11px;}
+    #printBord img{height:60px !important;}
+    #printBord h1{font-size:16px !important;}
+    #printBord h2{font-size:13px !important;margin:8px 0 5px !important;}
+    #printBord .print-meta{gap:6px !important;}
+    #printBord .print-box{padding:6px !important;}
+    #printBord .print-table th, #printBord .print-table td{padding:5px !important;font-size:11px !important;}
+    #printBord table{page-break-inside:avoid;}
+    #printBord .print-meta, #printBord .print-box, #printBord .print-table, #printBord .sigrow{page-break-inside:avoid;}
+
+    @media print{
+      body *{visibility:hidden;}
+      .print-area, .print-area *{visibility:visible;}
+      .print-area{display:block;position:absolute;left:0;top:0;width:100%;padding:14px;}
+    }
+
+    @media (min-width: 1200px){
+      section[data-col="nav"]{grid-column:1;position:sticky;top:106px;height:fit-content;}
+      section[data-col="left"]{grid-column:2;}
+      section[data-col="mid"]{grid-column:3;}
+      section[data-col="right"]{grid-column:4;}
+    }
+
+    @media (max-width: 960px){
+      .topbar{margin:8px auto 0;width:calc(100% - 16px);border-radius:16px;top:4px;}
+      .topbar .rowbar{gap:10px;}
+      .top-actions{width:100%;align-items:center;}
+      .wrap{padding:10px 8px 18px;}
+      .card{padding:14px;}
+      .row > div{flex:1 1 220px;}
+      input[type="number"], input[type="date"], input[type="time"], input, select, textarea{width:100%;}
+    }
+    @media (max-width: 620px){
+      .brandbox .titles .t1{font-size:15px;}
+      .brandbox .titles .t2{font-size:11px;}
+      .top-actions .chip{padding:7px 10px;}
+      .top-actions button{font-size:12px;padding:8px 10px;}
+      .tabs{gap:6px;}
+      .tab{font-size:12px;padding:7px 11px;}
+      .tablewrap{max-height:300px;}
+    }
+
+    body[data-theme="dark"]{
+      --bg:#07131f;
+      --bg-2:#0c1f32;
+      --surface:#0f1e2e;
+      --surface-soft:#102336;
+      --text:#e2edf8;
+      --muted:#9eb4ca;
+      --line:#1f3550;
+      --shadow:0 20px 40px rgba(0,0,0,.38);
+      --shadow-soft:0 12px 24px rgba(0,0,0,.24);
+    }
+    body[data-theme="dark"]{
+      background:
+        radial-gradient(1200px 500px at 8% -10%, rgba(44,131,193,.28), transparent 55%),
+        radial-gradient(900px 460px at 90% 0%, rgba(29,148,109,.18), transparent 60%),
+        linear-gradient(160deg, #07131f, #091a2c 45%, #0b2033 100%);
+    }
+    body[data-theme="dark"] .card{
+      background:linear-gradient(165deg, #0d2033, #10273d);
+      border-color:#1f3856;
+    }
+    body[data-theme="dark"] input,
+    body[data-theme="dark"] select,
+    body[data-theme="dark"] textarea{
+      background:#0b1d2f;
+      color:var(--text);
+      border-color:#274364;
+    }
+    body[data-theme="dark"] input:focus,
+    body[data-theme="dark"] select:focus,
+    body[data-theme="dark"] textarea:focus{
+      box-shadow:0 0 0 4px rgba(60,141,201,.28);
+      border-color:#4d9bd4;
+    }
+    body[data-theme="dark"] .pill{
+      background:#122940;
+      border-color:#284767;
+      color:#deebf8;
+    }
+    body[data-theme="dark"] .pill .k{color:#9eb7cf;}
+    body[data-theme="dark"] thead th{
+      background:#0f253a;
+      border-bottom-color:#284767;
+      color:#b8d0e7;
+    }
+    body[data-theme="dark"] tbody tr:hover td{background:#142f48;}
+    body[data-theme="dark"] .tablewrap{
+      background:#0d2135;
+      border-color:#254465;
+    }
+    body[data-theme="dark"] button.secondary{
+      background:linear-gradient(180deg, #0f2438, #142b41);
+      color:#dbe9f6;
+      border-color:#325577;
+    }
+    body[data-theme="dark"] #nav{
+      background:linear-gradient(170deg, #0b3654, #0f4f77 62%, #0f6f58 100%);
+      border-color:#1f5b83;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="topbar">
+  <div class="rowbar">
+    <div class="brandbox">
+      <img src="data:image/png;base64,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" alt="Logo" />
+      <div class="titles">
+        <div class="t1">EURL EAU MINERAL SAIDA</div>
+        <div class="t2">Caisse – EMP ➜ BEA | LCA ➜ CPA (DZD)</div>
+      </div>
+    </div>
+    <div class="row top-actions" style="align-items:center;">
+      <div class="chip"><span class="dot"></span><span>Caissier:</span> <b>NOUICER HOUARI</b></div>
+      <div class="chip"><span class="dot"></span><span>Jour:</span> <b id="topDay">—</b></div>
+      <button class="ghost" id="toggleTheme">🌓 Theme</button>
+      <button class="ghost" id="topPrintReport">🖨️ تقرير اليوم</button>
+      <button class="ghost" id="topPrintBord">🖨️ Bordereau</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="wrap">
+  <div class="grid">
+
+    <section class="card" data-col="nav" id="nav">
+      <h2>📌 Menu</h2>
+      <div class="sub">تنقّل سريع داخل البرنامج</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a class="pill" href="#settings"><span class="k">⚙️</span> الإعدادات</a>
+        <a class="pill" href="#backup"><span class="k">💾</span> Export / Import</a>
+        <a class="pill" href="#clients"><span class="k">👥</span> الزبائن</a>
+        <a class="pill" href="#enc"><span class="k">🧾</span> Encaissements</a>
+        <a class="pill" href="#dec"><span class="k">💸</span> Décaissements</a>
+        <a class="pill" href="#resume"><span class="k">📊</span> Résumé</a>
+        <a class="pill" href="#bord"><span class="k">🏦</span> Bordereau</a>
+        <a class="pill" href="#print"><span class="k">🖨️</span> طباعة</a>
+      </div>
+      <div class="small" style="margin-top:10px;">💡 نصيحة: استعمل Export JSON كل أسبوع.</div>
+    </section>
+
+
+    <section class="card" data-col="right" id="settings">
+      <h2>⚙️ إعدادات</h2><div class="sub">بيانات اليوم + Fond + RIB + معلومات المؤسسة + PIN (اختياري)</div>
+      <div class="row">
+        <div style="min-width:180px;">
+          <label>التاريخ (اليوم)</label>
+          <input id="day" type="date" />
+        </div>
+        <div>
+          <label>Fond de caisse (DZD)</label>
+          <input id="fond" type="number" min="0" step="1" />
+        </div>
+        <div style="min-width:220px;">
+          <label>RIB BEA (EMP)</label>
+          <input id="ribBEA" type="text" placeholder="RIB BEA" />
+        </div>
+        <div style="min-width:220px;">
+          <label>RIB CPA (LCA)</label>
+          <input id="ribCPA" type="text" placeholder="RIB CPA" />
+        </div>
+        <div style="min-width:200px;">
+          <label>Adresse (اختياري)</label>
+          <input id="adresse" type="text" placeholder="Adresse المؤسسة" />
+        </div>
+        <div style="min-width:160px;">
+          <label>RC (اختياري)</label>
+          <input id="rc" type="text" placeholder="RC" />
+        </div>
+        <div style="min-width:160px;">
+          <label>NIF (اختياري)</label>
+          <input id="nif" type="text" placeholder="NIF" />
+        </div>
+        <div style="min-width:160px;">
+          <label>PIN حماية (اختياري)</label>
+          <input id="pin" type="password" placeholder="****" />
+        </div>
+        <div>
+          <button class="secondary" id="saveParamsBtn">حفظ</button>
+        </div>
+      </div>
+      <div class="row" style="margin-top:8px;">
+        <button class="secondary" id="newDayBtn">📅 يوم جديد</button>
+        <button class="danger" id="closeDayBtn">🔒 Clôturer اليوم</button>
+        <span class="small" id="dayStatus"></span>
+      </div>
+      <div class="small" style="margin-top:8px;">البيانات محفوظة في المتصفح. استعمل Export باش تحتفظ بنسخة.</div>
+    </section>
+
+    <section class="card" data-col="right" id="backup">
+      <h2>💾 Export / Import</h2><div class="sub">نسخ احتياطي واسترجاع (JSON) وتصدير CSV</div>
+      <div class="row">
+        <button class="secondary" id="exportJsonBtn">Export JSON</button>
+        <label class="secondary" style="display:inline-flex;gap:8px;align-items:center;padding:10px 12px;border-radius:10px;border:1px solid #d7dbe7;cursor:pointer;">
+          Import JSON
+          <input id="importFile" type="file" accept="application/json" style="display:none" />
+        </label>
+        <button class="secondary" id="exportCsvBtn">Export CSV (اليوم)</button>
+      </div>
+      <div class="small" style="margin-top:8px;">JSON فيه: الإعدادات + الزبائن + العمليات + بوردرو BEA/CPA + أيام مغلقة.</div>
+    </section>
+
+    <section class="card" data-col="left" id="clients">
+      <h2>👥 الزبائن</h2><div class="sub">قائمة الزبائن (إضافة/تعديل/حذف) — الاسم يطلع Auto في العمليات</div>
+      <div class="row">
+        <div>
+          <label>رقم الزبون</label>
+          <input id="clientId" class="mono" type="number" min="1" step="1" />
+        </div>
+        <div style="flex:1; min-width:240px;">
+          <label>اسم الزبون</label>
+          <input id="clientName" type="text" />
+        </div>
+        <button id="saveClientBtn">إضافة / تعديل</button>
+      </div>
+      <div class="row" style="margin-top:10px;">
+        <div style="flex:1; min-width:260px;">
+          <label>بحث</label>
+          <input id="clientSearch" type="text" placeholder="ابحث بالاسم أو الرقم..." />
+        </div>
+      </div>
+      <div class="tablewrap" style="margin-top:12px;">
+        <table>
+          <thead><tr><th>رقم</th><th>الاسم</th><th>حذف</th></tr></thead>
+          <tbody id="clientsTbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card" data-col="mid" id="enc">
+      <h2>🧾 Encaissements</h2><div class="sub">إدخال عمليات القبض (Encaissement) وربط EMP بـ BEA و LCA بـ CPA</div>
+      <div class="small">Produit: <b>EMP</b> ➜ BEA | <b>LCA</b> ➜ CPA</div>
+
+      <div class="row" style="margin-top:8px;">
+        <div>
+          <label>التاريخ</label>
+          <input id="txDate" type="date" />
+        </div>
+        <div>
+          <label>الوقت</label>
+          <input id="txTime" type="time" />
+        </div>
+        <div>
+          <label>رقم الزبون</label>
+          <input id="txClientId" class="mono" type="number" min="1" step="1" />
+        </div>
+        <div style="flex:1; min-width:220px;">
+          <label>اسم الزبون (Auto)</label>
+          <input id="txClientName" type="text" readonly />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <div>
+          <label>N° Reçu</label>
+          <input id="txReceipt" class="mono" type="text" placeholder="اختياري" />
+        </div>
+        <div>
+          <label>Produit</label>
+          <select id="txProduit">
+            <option value="EMP">EMP</option>
+            <option value="LCA">LCA</option>
+          </select>
+        </div>
+        <div>
+          <label>Mode</label>
+          <select id="txMode">
+            <option value="Espèces">Espèces</option>
+            <option value="Carte">Carte</option>
+            <option value="Chèque">Chèque</option>
+          </select>
+        </div>
+        <div>
+          <label>Montant (DZD)</label>
+          <input id="txAmount" type="number" min="0" step="1" />
+        </div>
+        <div style="flex:1; min-width:240px;">
+          <label>Observation</label>
+          <input id="txObs" type="text" placeholder="اختياري" />
+        </div>
+        <button id="saveTxBtn">إضافة</button>
+        <button class="secondary" id="cancelEditBtn" style="display:none;">إلغاء</button>
+      </div>
+
+      <div class="row" style="margin-top:10px;">
+        <div style="flex:1; min-width:260px;">
+          <label>بحث (Reçu / رقم / اسم)</label>
+          <input id="txSearch" type="text" placeholder="..." />
+        </div>
+        <div>
+          <label>فلتر Produit</label>
+          <select id="txProdFilter">
+            <option value="">الكل</option>
+            <option value="EMP">EMP</option>
+            <option value="LCA">LCA</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="tablewrap" style="margin-top:12px;">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>تاريخ</th><th>وقت</th><th>رقم</th><th>الاسم</th><th>Produit</th><th>Reçu</th><th>Mode</th><th>المبلغ</th><th>تعديل</th><th>حذف</th>
+            </tr>
+          </thead>
+          <tbody id="txTbody"></tbody>
+        </table>
+      </div>
+
+      <div class="row" style="margin-top:10px;">
+        <button class="danger" id="clearDayTxBtn">تصفير معاملات اليوم</button>
+        <span class="small">يمسح غير معاملات التاريخ الحالي.</span>
+      </div>
+    </section>
+
+    
+    <!-- DECAISSEMENTS -->
+    <section class="card" data-col="mid" id="dec">
+      <h2>💸 Décaissements (صندوق واحد)</h2><div class="sub">خروج نقدي/شيك/تحويل من الصندوق (لا علاقة له بالبنوك)</div>
+      <div class="small">خروج المال من الصندوق (مصاريف / دفع / ...). لا علاقة له بـ BEA أو CPA.</div>
+
+      <div class="row" style="margin-top:8px;">
+        <div>
+          <label>التاريخ</label>
+          <input id="decDate" type="date" />
+        </div>
+        <div>
+          <label>الوقت</label>
+          <input id="decTime" type="time" />
+        </div>
+        <div style="flex:1; min-width:240px;">
+          <label>Libellé / سبب</label>
+          <input id="decLabel" type="text" placeholder="Essence / Fournitures / ..." />
+        </div>
+      </div>
+
+      <div class="row" style="margin-top:8px;">
+        <div>
+          <label>Mode</label>
+          <select id="decMode">
+            <option value="Espèces">Espèces</option>
+            <option value="Chèque">Chèque</option>
+            <option value="Virement">Virement</option>
+          </select>
+        </div>
+        <div>
+          <label>Montant (DZD)</label>
+          <input id="decAmount" type="number" min="0" step="1" />
+        </div>
+        <div style="flex:1; min-width:240px;">
+          <label>Observation</label>
+          <input id="decObs" type="text" placeholder="اختياري" />
+        </div>
+        <button id="saveDecBtn">إضافة</button>
+        <button class="secondary" id="cancelDecEditBtn" style="display:none;">إلغاء</button>
+      </div>
+
+      <div class="row" style="margin-top:10px;">
+        <div style="flex:1; min-width:260px;">
+          <label>بحث</label>
+          <input id="decSearch" type="text" placeholder="..." />
+        </div>
+      </div>
+
+      <div class="tablewrap" style="margin-top:12px; max-height:320px;">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th><th>تاريخ</th><th>وقت</th><th>Libellé</th><th>Mode</th><th>المبلغ</th><th>تعديل</th><th>حذف</th>
+            </tr>
+          </thead>
+          <tbody id="decTbody"></tbody>
+        </table>
+      </div>
+
+      <div class="row" style="margin-top:10px;">
+        <button class="danger" id="clearDayDecBtn">تصفير Décaissement اليوم</button>
+        <span class="small">يمسح غير Décaissement تاع التاريخ الحالي.</span>
+      </div>
+    </section>
+
+<section class="card" data-col="right" id="resume">
+      <h2>📊 Résumé اليوم</h2><div class="sub">ملخّص سريع للحسابات + مبالغ الإيداع لكل بنك</div>
+      <div class="row">
+        <div class="pill">Total Espèces: <span id="sumCash" class="mono"></span></div>
+        <div class="pill">Total Carte: <span id="sumCard" class="mono"></span></div>
+        <div class="pill">Total Chèque: <span id="sumCheque" class="mono"></span></div>
+        <div class="pill">Total Général: <span id="sumAll" class="mono"></span></div>
+      </div>
+      <div class="row" style="margin-top:10px;">
+        <div class="pill">Fond: <span id="sumFond" class="mono"></span></div>
+        <div class="pill">Décaissement Espèces: <span id="sumDecCash" class="mono"></span></div>
+        <div class="pill">Décaissement Total: <span id="sumDecAll" class="mono"></span></div>
+      </div>
+      <div class="row" style="margin-top:10px;">
+        <div class="pill">Versement BEA (EMP): <span id="depBEA" class="mono"></span></div>
+        <div class="pill">Versement CPA (LCA): <span id="depCPA" class="mono"></span></div>
+      </div>
+      <div class="small" style="margin-top:8px;">⚠️ Fond de caisse يُنقص من Espèces، ثم يُنقص من BEA ثم CPA (صندوق واحد).</div>
+    </section>
+
+    <section class="card" data-col="right" id="bord">
+      <h2>🏦 Bordereau Versement (2 banques)</h2><div class="sub">تحضير Bordereau وطباعته PDF لكل بنك مع الفئات والعمليات</div>
+      <div class="tabs" style="margin-bottom:10px;">
+        <div class="tab active" id="tabBEA">BEA (EMP)</div>
+        <div class="tab" id="tabCPA">CPA (LCA)</div>
+      </div>
+
+      <div class="row">
+        <div class="pill">اليوم: <span id="bDay" class="mono"></span></div>
+        <div class="pill">N° Bordereau: <span id="bNo" class="mono"></span></div>
+        <div class="pill">Montant à verser: <span id="bAmount" class="mono"></span> DZD</div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <div class="bank-bar" id="bankBar" style="background:#0a3d62;"></div>
+        <div class="small">دخل الكميات الخاصة بهذا البنك فقط.</div>
+        <div class="tablewrap" style="margin-top:8px; max-height:320px;">
+          <table>
+            <thead><tr><th>Type</th><th>Dénomination</th><th>Quantité</th><th>Sous-total</th></tr></thead>
+            <tbody id="denomsTbody"></tbody>
+            <tfoot><tr><th colspan="3">TOTAL</th><th><span id="denTotal" class="mono"></span></th></tr></tfoot>
+          </table>
+        </div>
+        <div class="row" style="margin-top:10px;">
+          <div class="pill">Diff (TOTAL − Montant): <span id="denDiff" class="mono"></span> <span id="denStatus"></span></div>
+          <button class="secondary" id="resetDenBtn">تصفير الفئات</button>
+          <button class="secondary" id="newBordBtn">Bordereau جديد</button>
+        </div>
+        <div class="row" style="margin-top:10px;" id="print">
+          <button id="printBordBtn">🖨️ طباعة Bordereau PDF (هذا البنك)</button>
+          <button class="secondary" id="printReportBtn">🖨️ طباعة Report Caisse PDF (اليوم)</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div class="print-area" id="printArea">
+  <div id="printBord">
+    <div style="text-align:center;margin-bottom:8px;">
+      <img src="data:image/png;base64,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" style="height:80px;" />
+    </div>
+    <h1 style="margin:0; text-align:center;">EURL EAU MINERAL SAIDA</h1>
+    <div id="p_company_info" style="text-align:center; font-size:12px; margin-top:4px;"></div>
+    <div id="p_bar" style="height:8px;border-radius:8px;margin:10px 0;background:#0a3d62;"></div>
+    <h2 style="text-align:center;">BORDEREAU DE VERSEMENT</h2>
+
+    <div class="print-meta">
+      <div class="print-box">
+        <div><b>Banque:</b> <span id="p_bank"></span></div>
+        <div><b>RIB:</b> <span id="p_rib"></span></div>
+        <div><b>Date:</b> <span id="p_day"></span></div>
+        <div><b>N° Bordereau:</b> <span id="p_no"></span></div>
+      </div>
+      <div class="print-box">
+        <div><b>Montant à verser:</b> <span id="p_amount"></span> DZD</div>
+        <div style="margin-top:6px;"><b>Montant en lettres:</b></div>
+        <div id="p_words" style="margin-top:4px;"></div>
+      </div>
+    </div>
+
+    <h2>Détail billets / pièces</h2>
+        <h2 style="margin-top:18px;">Liste des encaissements (Espèces - ce banque)</h2>
+        <table class="print-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Heure</th>
+              <th>Client</th>
+              <th>Nom</th>
+              <th>Reçu</th>
+              <th>Montant</th>
+            </tr>
+          </thead>
+          <tbody id="p_txs"></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="5">TOTAL ENCAISSEMENTS (Espèces)</th>
+              <th id="p_txs_total"></th>
+            </tr>
+          </tfoot>
+        </table>
+        <div style="font-size:12px;margin-top:6px;"><b>Nombre de clients:</b> <span id="p_txs_count"></span></div>
+
+        
+    <table class="print-table">
+      <thead><tr><th>Type</th><th>Dénomination</th><th>Quantité</th><th>Sous-total</th></tr></thead>
+      <tbody id="p_denoms"></tbody>
+      <tfoot><tr><th colspan="3">TOTAL</th><th id="p_den_total"></th></tr></tfoot>
+    </table>
+
+    <div class="sigrow" style="margin-top:10px; display:flex; gap:12px; font-size:11px; align-items:flex-end;">
+      <div style="flex:1; border:1px dashed #bbb; padding:10px; border-radius:8px;">
+        <b>Signature Caissier</b><br><br>NOUICER HOUARI<br>
+      </div>
+<div style="flex:1; border:1px dashed #bbb; padding:10px; border-radius:8px;">
+        <b>Réception Banque</b><br><br><br>
+      </div>
+    </div>
+  </div>
+
+  <div id="printReport" style="display:none;">
+    <div style="text-align:center;margin-bottom:8px;">
+      <img src="data:image/png;base64,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" style="height:80px;" />
+    </div>
+    <h1 style="margin:0; text-align:center;">EURL EAU MINERAL SAIDA</h1>
+    <div id="r_company_info" style="text-align:center; font-size:12px; margin-top:4px;"></div>
+    <div style="height:8px;border-radius:8px;margin:10px 0;background:#0a3d62;"></div>
+    <h2 style="text-align:center;">RAPPORT DE CAISSE</h2>
+
+    <div class="print-meta">
+      <div class="print-box">
+        <div><b>Date:</b> <span id="r_day"></span></div>
+        <div><b>Statut:</b> <span id="r_status"></span></div>
+      </div>
+      <div class="print-box">
+        <div><b>Total Espèces:</b> <span id="r_cash"></span></div>
+        <div><b>Total Carte:</b> <span id="r_card"></span></div>
+        <div><b>Total Chèque:</b> <span id="r_cheque"></span></div>
+        <div><b>Fond:</b> <span id="r_fond"></span></div>
+        <div><b>Versement BEA (EMP):</b> <span id="r_bea"></span></div>
+        <div><b>Versement CPA (LCA):</b> <span id="r_cpa"></span></div>
+        <div><b>Décaissement Espèces:</b> <span id="r_dec_cash"></span></div>
+        <div><b>Décaissement Total:</b> <span id="r_dec_all"></span></div>
+        <div><b>Solde caisse (Espèces):</b> <span id="r_solde_cash"></span></div>
+      </div>
+    </div>
+
+    <h2>Encaissements (jour)</h2>
+    <table class="print-table">
+      <thead><tr><th>#</th><th>Heure</th><th>Client</th><th>Nom</th><th>Produit</th><th>Reçu</th><th>Mode</th><th>Montant</th></tr></thead>
+      <tbody id="r_txs"></tbody>
+    </table>
+
+    <h2>Décaissements (jour)</h2>
+    <table class="print-table">
+      <thead><tr><th>#</th><th>Heure</th><th>Libellé</th><th>Mode</th><th>Montant</th></tr></thead>
+      <tbody id="r_decs"></tbody>
+      <tfoot>
+        <tr><th colspan="4">TOTAL DÉCAISSEMENTS</th><th id="r_decs_total"></th></tr>
+      </tfoot>
+    </table>
+  </div>
+</div>
+
+<script>
+/* STORAGE */
+const KEY = "caissier_multi_banque_v11";
+const THEME_KEY = "caissier_theme_v1";
+const defaultState = () => ({
+  params: {
+    day: new Date().toISOString().slice(0,10),
+    fond: 0,
+    ribBEA: "",
+    ribCPA: "",
+    adresse: "",
+    rc: "",
+    nif: "",
+    pin: ""
+  },
+  clients: [],
+  tx: [],
+  dec: [],
+  closedDays: {},            // day -> true
+  bordSeq: { BEA: {}, CPA: {} }, // seq per bank per day
+  denoms: { BEA: {}, CPA: {} }   // denoms per bank per day
+});
+
+let state = load();
+
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(!raw) return defaultState();
+    const s = JSON.parse(raw);
+    const d = defaultState();
+    return {
+      ...d, ...s,
+      params: { ...d.params, ...(s.params||{}) },
+      bordSeq: { BEA: { ...(s.bordSeq?.BEA||{}) }, CPA: { ...(s.bordSeq?.CPA||{}) } },
+      denoms:  { BEA: { ...(s.denoms?.BEA||{}) },  CPA: { ...(s.denoms?.CPA||{}) } }
+    };
+  } catch(e){
+    return defaultState();
+  }
+}
+function save(){ localStorage.setItem(KEY, JSON.stringify(state)); }
+
+const $ = (id)=>document.getElementById(id);
+const fmt = (n)=> (Math.round((Number(n)||0))).toLocaleString("fr-DZ");
+const nowDate = ()=> new Date().toISOString().slice(0,10);
+const nowTime = ()=> {
+  const d = new Date();
+  return String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
+};
+function escapeHtml(s){ return String(s??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;"); }
+function applyTheme(theme){
+  if(theme==="dark") document.body.setAttribute("data-theme","dark");
+  else document.body.removeAttribute("data-theme");
+}
+function loadTheme(){
+  try{
+    const saved = localStorage.getItem(THEME_KEY) || "light";
+    applyTheme(saved);
+  } catch(e){
+    applyTheme("light");
+  }
+}
+function toggleTheme(){
+  const next = document.body.getAttribute("data-theme")==="dark" ? "light" : "dark";
+  applyTheme(next);
+  try{ localStorage.setItem(THEME_KEY, next); } catch(e){}
+}
+
+function isClosed(day){ return !!state.closedDays[day]; }
+function requirePin(action){
+  const pin = (state.params.pin||"").trim();
+  if(!pin) return true;
+  const entered = prompt("PIN مطلوب: "+action);
+  return entered === pin;
+}
+
+/* French words */
+function frUnits(n){
+  const u = ["zéro","un","deux","trois","quatre","cinq","six","sept","huit","neuf","dix",
+    "onze","douze","treize","quatorze","quinze","seize","dix-sept","dix-huit","dix-neuf"];
+  return u[n];
+}
+function frBelow100(n){
+  n=Math.floor(n);
+  if(n<20) return frUnits(n);
+  if(n<70){
+    const t=Math.floor(n/10), r=n%10;
+    const tens=["","dix","vingt","trente","quarante","cinquante","soixante"];
+    if(r===0) return tens[t];
+    if(r===1) return tens[t]+" et un";
+    return tens[t]+"-"+frUnits(r);
+  }
+  if(n<80){
+    const r=n-60;
+    if(r===11) return "soixante et onze";
+    return "soixante-"+frBelow100(r);
+  }
+  if(n===80) return "quatre-vingts";
+  return "quatre-vingt-"+frBelow100(n-80);
+}
+function frBelow1000(n){
+  n=Math.floor(n);
+  if(n<100) return frBelow100(n);
+  const h=Math.floor(n/100), r=n%100;
+  let s = (h===1) ? "cent" : (frUnits(h)+" cent");
+  if(r===0){ if(h>1) s+="s"; return s; }
+  return s+" "+frBelow100(r);
+}
+function frNumber(n){
+  n=Math.floor(Math.abs(n));
+  if(n===0) return "zéro";
+  const parts=[];
+  const million=Math.floor(n/1000000);
+  const restM=n%1000000;
+  const thousand=Math.floor(restM/1000);
+  const rest=restM%1000;
+  if(million) parts.push(million===1 ? "un million" : frBelow1000(million)+" millions");
+  if(thousand) parts.push(thousand===1 ? "mille" : frBelow1000(thousand)+" mille");
+  if(rest) parts.push(frBelow1000(rest));
+  return parts.join(" ");
+}
+function amountToWordsDZD(n){
+  const num=Math.round(Number(n)||0);
+  const w=frNumber(num);
+  return w.charAt(0).toUpperCase()+w.slice(1)+" dinars algériens";
+}
+
+/* Denoms */
+const DENOMS = [
+  {type:"Billet", value:2000, key:"B_2000"},
+  {type:"Billet", value:1000, key:"B_1000"},
+  {type:"Billet", value:500,  key:"B_500"},
+  {type:"Billet", value:200,  key:"B_200"},
+  {type:"Pièce", value:200,   key:"P_200"},
+  {type:"Pièce", value:100,   key:"P_100"},
+  {type:"Pièce", value:50,    key:"P_50"},
+  {type:"Pièce", value:20,    key:"P_20"},
+  {type:"Pièce", value:10,    key:"P_10"},
+  {type:"Pièce", value:5,     key:"P_5"},
+];
+function getDen(day, bankKey){
+  if(!state.denoms[bankKey][day]) state.denoms[bankKey][day] = {};
+  return state.denoms[bankKey][day];
+}
+function denomTotal(day, bankKey){
+  const den=getDen(day, bankKey);
+  return DENOMS.reduce((s,d)=> s + (Number(den[d.key]||0)*d.value), 0);
+}
+
+/* Bord seq */
+function currentBordNo(day, bankKey){
+  const cur = Number(state.bordSeq[bankKey][day]||0) || 1;
+  if(!state.bordSeq[bankKey][day]) { state.bordSeq[bankKey][day]=1; save(); }
+  return day.replaceAll("-","")+"-"+bankKey+"-"+String(cur).padStart(3,"0");
+}
+function nextBordNo(day, bankKey){
+  const cur = Number(state.bordSeq[bankKey][day]||0);
+  const nxt = cur + 1;
+  state.bordSeq[bankKey][day]=nxt;
+  save();
+  return day.replaceAll("-","")+"-"+bankKey+"-"+String(nxt).padStart(3,"0");
+}
+
+/* Clients */
+function upsertClient(id, name){
+  id=Number(id); name=(name||"").trim();
+  if(!id || !name) return false;
+  const idx=state.clients.findIndex(c=>c.id===id);
+  if(idx>=0) state.clients[idx].name=name;
+  else state.clients.push({id, name});
+  state.clients.sort((a,b)=>a.id-b.id);
+  save(); return true;
+}
+function deleteClient(id){ state.clients = state.clients.filter(c=>c.id!==id); save(); }
+function clientNameById(id){ id=Number(id); const c=state.clients.find(x=>x.id===id); return c?c.name:""; }
+
+/* TX */
+function txOfDay(day){ return state.tx.filter(t=>t.day===day); }
+function addTx(t){ state.tx.unshift(t); save(); }
+function updateTx(id, patch){ const i=state.tx.findIndex(t=>t.id===id); if(i<0) return false; state.tx[i]={...state.tx[i], ...patch}; save(); return true; }
+function deleteTx(id){ state.tx = state.tx.filter(t=>t.id!==id); save(); }
+function clearDayTx(day){ state.tx = state.tx.filter(t=>t.day!==day); save(); }
+
+// DEC
+function decOfDay(day){ return state.dec.filter(d=>d.day===day); }
+function addDec(d){ state.dec.unshift(d); save(); }
+function updateDec(id, patch){ const i=state.dec.findIndex(x=>x.id===id); if(i<0) return false; state.dec[i]={...state.dec[i], ...patch}; save(); return true; }
+function deleteDec(id){ state.dec = state.dec.filter(x=>x.id!==id); save(); }
+function clearDayDec(day){ state.dec = state.dec.filter(x=>x.day!==day); save(); }
+
+let editId=null;
+let editDecId=null;
+
+/* Deposits */
+function computeDeposits(day){
+  const list=txOfDay(day);
+  let cashTotal=0, card=0, cheque=0, beaCash=0, cpaCash=0;
+  for(const t of list){
+    const a=Number(t.amount)||0;
+    if(t.mode==="Espèces"){
+      cashTotal += a;
+      if(t.produit==="EMP") beaCash += a; else if(t.produit==="LCA") cpaCash += a;
+    } else if(t.mode==="Carte") card += a; else if(t.mode==="Chèque") cheque += a;
+  }
+
+  const decs = decOfDay(day);
+  const decCash = decs.filter(x=>x.mode==="Espèces").reduce((s,x)=> s + (Number(x.amount)||0), 0);
+  const decAll  = decs.reduce((s,x)=> s + (Number(x.amount)||0), 0);
+
+  const fond=Number(state.params.fond)||0;
+
+  // Available cash for deposits after décaissement espèces + fond
+  let deduction = decCash + fond;
+
+  // subtract deductions from BEA cash first, then CPA cash (صندوق واحد)
+  let depBEA = Math.max(0, beaCash - deduction);
+  deduction = Math.max(0, deduction - beaCash);
+  let depCPA = Math.max(0, cpaCash - deduction);
+
+  // global remaining safety
+  const remaining = Math.max(0, cashTotal - decCash - fond);
+  const sum = depBEA + depCPA;
+  if(sum > remaining){
+    const excess = sum - remaining;
+    depCPA = Math.max(0, depCPA - excess);
+  }
+
+  return {cashTotal, card, cheque, all:cashTotal+card+cheque, depBEA, depCPA, fond, decCash, decAll};
+}
+
+/* Render */
+let activeBank="BEA";
+function renderParams(){
+  $("day").value = state.params.day || nowDate();
+  $("fond").value = Number(state.params.fond||0);
+  $("ribBEA").value = state.params.ribBEA || "";
+  $("ribCPA").value = state.params.ribCPA || "";
+  $("adresse").value = state.params.adresse || "";
+  $("rc").value = state.params.rc || "";
+  $("nif").value = state.params.nif || "";
+  $("pin").value = state.params.pin || "";
+  $("txDate").value = state.params.day || nowDate();
+  $("txTime").value = nowTime();
+  if(document.getElementById("decDate")) $("decDate").value = state.params.day || nowDate();
+  if(document.getElementById("decTime")) $("decTime").value = nowTime();
+  const topDay = document.getElementById("topDay");
+  if(topDay) topDay.textContent = state.params.day || nowDate();
+  $("dayStatus").innerHTML = isClosed(state.params.day) ? '<span class="bad">اليوم مغلق</span>' : '<span class="ok">اليوم مفتوح</span>';
+}
+function renderClients(){
+  const q=($("clientSearch").value||"").trim().toLowerCase();
+  const rows=state.clients
+    .filter(c=> !q || String(c.id).includes(q) || (c.name||"").toLowerCase().includes(q))
+    .map(c=>`
+      <tr>
+        <td class="mono">${c.id}</td>
+        <td>${escapeHtml(c.name)}</td>
+        <td><button class="secondary" onclick="uiDelClient(${c.id})">حذف</button></td>
+      </tr>
+    `).join("");
+  $("clientsTbody").innerHTML = rows || `<tr><td colspan="3" class="small">لا يوجد زبائن</td></tr>`;
+}
+function renderTx(){
+  const day=state.params.day;
+  const q=($("txSearch").value||"").trim().toLowerCase();
+  const pf=$("txProdFilter").value || "";
+  const list=txOfDay(day)
+    .filter(t=> !pf || t.produit===pf)
+    .filter(t=> !q || String(t.clientId).includes(q) || (t.clientName||"").toLowerCase().includes(q) || (t.receipt||"").toLowerCase().includes(q));
+  const rows=list.map((t,i)=>`
+    <tr>
+      <td class="mono">${list.length-i}</td>
+      <td class="mono">${t.date}</td>
+      <td class="mono">${t.time}</td>
+      <td class="mono">${t.clientId}</td>
+      <td>${escapeHtml(t.clientName)}</td>
+      <td><span class="pill">${t.produit}</span></td>
+      <td class="mono">${escapeHtml(t.receipt||"")}</td>
+      <td><span class="pill">${t.mode}</span></td>
+      <td class="mono">${fmt(t.amount)}</td>
+      <td><button class="secondary" onclick="uiEditTx('${t.id}')">تعديل</button></td>
+      <td><button class="secondary" onclick="uiDelTx('${t.id}')">حذف</button></td>
+    </tr>
+  `).join("");
+  $("txTbody").innerHTML = rows || `<tr><td colspan="11" class="small">لا توجد عمليات</td></tr>`;
+}
+function renderDec(){
+  const day = state.params.day;
+  const q = ($("decSearch").value||"").trim().toLowerCase();
+  const list = decOfDay(day).filter(d =>
+    !q || (d.label||"").toLowerCase().includes(q) || (d.mode||"").toLowerCase().includes(q)
+  );
+
+  const rows = list.map((d,i)=>`
+    <tr>
+      <td class="mono">${list.length-i}</td>
+      <td class="mono">${d.date}</td>
+      <td class="mono">${d.time}</td>
+      <td>${escapeHtml(d.label)}</td>
+      <td><span class="pill">${d.mode}</span></td>
+      <td class="mono">${fmt(d.amount)}</td>
+      <td><button class="secondary" onclick="uiEditDec('${d.id}')">تعديل</button></td>
+      <td><button class="secondary" onclick="uiDelDec('${d.id}')">حذف</button></td>
+    </tr>
+  `).join("");
+  $("decTbody").innerHTML = rows || `<tr><td colspan="8" class="small">لا يوجد Décaissement</td></tr>`;
+}
+
+function renderSummary(){
+  const s=computeDeposits(state.params.day);
+  $("sumCash").textContent = fmt(s.cashTotal);
+  $("sumCard").textContent = fmt(s.card);
+  $("sumCheque").textContent = fmt(s.cheque);
+  $("sumAll").textContent = fmt(s.all);
+  $("sumFond").textContent = fmt(s.fond);
+  $("sumDecCash").textContent = fmt(s.decCash||0);
+  $("sumDecAll").textContent = fmt(s.decAll||0);
+  $("depBEA").textContent = fmt(s.depBEA);
+  $("depCPA").textContent = fmt(s.depCPA);
+}
+function bankColor(bankKey){ return bankKey==="BEA" ? "#0a3d62" : "#0a7a2f"; }
+function bankName(bankKey){ return bankKey==="BEA" ? "BEA (EMP)" : "CPA (LCA)"; }
+function bankRib(bankKey){ return bankKey==="BEA" ? (state.params.ribBEA||"") : (state.params.ribCPA||""); }
+
+function renderBordereau(){
+  const day=state.params.day;
+  $("bDay").textContent = day;
+  const s=computeDeposits(day);
+  const amount = activeBank==="BEA" ? s.depBEA : s.depCPA;
+  $("bAmount").textContent = fmt(amount);
+  $("bNo").textContent = currentBordNo(day, activeBank);
+  $("tabBEA").classList.toggle("active", activeBank==="BEA");
+  $("tabCPA").classList.toggle("active", activeBank==="CPA");
+  $("bankBar").style.background = bankColor(activeBank);
+
+  const den=getDen(day, activeBank);
+  $("denomsTbody").innerHTML = DENOMS.map(d=>{
+    const qty=Number(den[d.key]||0);
+    const sub=qty*d.value;
+    const label = (d.value===200 && d.type==="Billet") ? "200 (papier)" : (d.value===200 && d.type==="Pièce" ? "200 (metal)" : String(d.value));
+    return `
+      <tr>
+        <td>${d.type}</td>
+        <td class="mono">${label}</td>
+        <td><input class="mono" type="number" min="0" step="1" value="${qty}" data-denkey="${d.key}" /></td>
+        <td class="mono">${fmt(sub)}</td>
+      </tr>
+    `;
+  }).join("");
+
+  $("denomsTbody").querySelectorAll("input[data-denkey]").forEach(inp=>{
+    inp.addEventListener("input", ()=>{
+      const k=inp.getAttribute("data-denkey");
+      den[k]=Math.max(0, Number(inp.value)||0);
+      save();
+      renderBordTotals();
+    });
+  });
+
+  renderBordTotals();
+}
+function renderBordTotals(){
+  const day=state.params.day;
+  const s=computeDeposits(day);
+  const amount = activeBank==="BEA" ? s.depBEA : s.depCPA;
+  const total = denomTotal(day, activeBank);
+  $("denTotal").textContent = fmt(total);
+  const diff = total - amount;
+  $("denDiff").textContent = fmt(diff);
+  if(diff===0){
+    $("denStatus").textContent = "✅ مطابق";
+    $("denStatus").className = "ok";
+  } else {
+    $("denStatus").textContent = "❌ غير مطابق";
+    $("denStatus").className = "bad";
+  }
+}
+function renderAll(){
+  renderParams();
+  renderClients();
+  renderTx();
+  renderDec();
+  renderSummary();
+  renderBordereau();
+}
+
+/* Table actions */
+window.uiDelClient = (id)=>{
+  if(!requirePin("حذف زبون")) return;
+  if(confirm("حذف الزبون؟")){ deleteClient(Number(id)); renderAll(); }
+};
+window.uiDelDec = (id)=>{
+  if(!requirePin('حذف Décaissement')) return;
+  if(confirm('حذف Décaissement؟')){ deleteDec(id); renderAll(); }
+};
+window.uiEditDec = (id)=>{
+  const d = state.dec.find(x=>x.id===id);
+  if(!d) return;
+  editDecId=id;
+  $('saveDecBtn').textContent='حفظ التعديل';
+  $('cancelDecEditBtn').style.display='';
+  $('decDate').value=d.date;
+  $('decTime').value=d.time;
+  $('decLabel').value=d.label;
+  $('decMode').value=d.mode;
+  $('decAmount').value=d.amount;
+  $('decObs').value=d.obs||'';
+  window.scrollTo({top:0, behavior:'smooth'});
+};
+
+window.uiDelTx = (id)=>{
+  if(!requirePin("حذف عملية")) return;
+  if(confirm("حذف العملية؟")){ deleteTx(id); renderAll(); }
+};
+window.uiEditTx = (id)=>{
+  const t=state.tx.find(x=>x.id===id);
+  if(!t) return;
+  editId=id;
+  $("saveTxBtn").textContent="حفظ التعديل";
+  $("cancelEditBtn").style.display="";
+  $("txDate").value=t.date;
+  $("txTime").value=t.time;
+  $("txClientId").value=t.clientId;
+  $("txClientName").value=t.clientName;
+  $("txReceipt").value=t.receipt||"";
+  $("txProduit").value=t.produit;
+  $("txMode").value=t.mode;
+  $("txAmount").value=t.amount;
+  $("txObs").value=t.obs||"";
+  window.scrollTo({top:0, behavior:"smooth"});
+};
+
+/* Events */
+if(document.getElementById("toggleTheme")){
+  $("toggleTheme").addEventListener("click", toggleTheme);
+}
+if(document.getElementById("topPrintReport")){
+  $("topPrintReport").addEventListener("click", ()=> $("printReportBtn").click());
+}
+if(document.getElementById("topPrintBord")){
+  $("topPrintBord").addEventListener("click", ()=> $("printBordBtn").click());
+}
+
+$("saveParamsBtn").addEventListener("click", ()=>{
+  state.params.day = $("day").value || nowDate();
+  state.params.fond = Math.max(0, Number($("fond").value)||0);
+  state.params.ribBEA = ($("ribBEA").value||"").trim();
+  state.params.ribCPA = ($("ribCPA").value||"").trim();
+  state.params.adresse = ($("adresse").value||"").trim();
+  state.params.rc = ($("rc").value||"").trim();
+  state.params.nif = ($("nif").value||"").trim();
+  state.params.pin = ($("pin").value||"").trim();
+  save();
+  $("txDate").value = state.params.day;
+  renderAll();
+  try{ const el=document.getElementById("topDay"); if(el) el.textContent=state.params.day; }catch(e){}
+});
+
+$("day").addEventListener("change", ()=>{
+  state.params.day = $("day").value || nowDate();
+  save();
+  $("txDate").value = state.params.day;
+  renderAll();
+  try{ const el=document.getElementById("topDay"); if(el) el.textContent=state.params.day; }catch(e){}
+});
+
+$("newDayBtn").addEventListener("click", ()=>{
+  const d=prompt("أدخل تاريخ (YYYY-MM-DD)", nowDate());
+  if(!d) return;
+  state.params.day=d;
+  save();
+  $("day").value=d;
+  $("txDate").value=d;
+  renderAll();
+  try{ const el=document.getElementById("topDay"); if(el) el.textContent=state.params.day; }catch(e){}
+});
+
+$("closeDayBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(!requirePin("Clôturer اليوم")) return;
+  if(confirm("غلق اليوم يمنع إضافة عمليات لهذا التاريخ. متأكد؟")){
+    state.closedDays[day]=true;
+    save();
+    renderAll();
+  }
+});
+
+$("exportJsonBtn").addEventListener("click", ()=>{
+  const blob=new Blob([JSON.stringify(state,null,2)], {type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`backup_caissier_${state.params.day||nowDate()}.json`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+$("importFile").addEventListener("change", async (e)=>{
+  const file=e.target.files?.[0];
+  if(!file) return;
+  try{
+    const text=await file.text();
+    const obj=JSON.parse(text);
+    state=obj;
+    const d=defaultState();
+    state={
+      ...d, ...state,
+      params:{...d.params, ...(state.params||{})},
+      bordSeq:{BEA:{...(state.bordSeq?.BEA||{})}, CPA:{...(state.bordSeq?.CPA||{})}},
+      denoms:{BEA:{...(state.denoms?.BEA||{})}, CPA:{...(state.denoms?.CPA||{})}}
+    };
+    save();
+    renderAll();
+    alert("تم الاسترجاع ✅");
+  }catch(err){
+    alert("فشل الاسترجاع: JSON غير صالح");
+  }finally{
+    e.target.value="";
+  }
+});
+
+$("exportCsvBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  const rows=[["date","time","clientId","clientName","produit","receipt","mode","amount","obs"]];
+  for(const t of txOfDay(day).slice().reverse()){
+    rows.push([t.date,t.time,t.clientId,t.clientName,t.produit,t.receipt,t.mode,t.amount,t.obs]);
+  }
+  const csv=rows.map(r=>r.map(v=>{
+    const s=String(v??"");
+    return /[",\n]/.test(s) ? `"${s.replaceAll('"','""')}"` : s;
+  }).join(",")).join("\n");
+  const blob=new Blob([csv], {type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download=`encaissements_${day}.csv`;
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+$("saveClientBtn").addEventListener("click", ()=>{
+  const id=$("clientId").value;
+  const name=$("clientName").value;
+  if(!id || !name) return alert("دخل رقم واسم الزبون.");
+  upsertClient(id,name);
+  $("clientId").value="";
+  $("clientName").value="";
+  renderAll();
+});
+
+$("clientSearch").addEventListener("input", renderClients);
+
+function updateAutoClientName(){
+  $("txClientName").value = clientNameById($("txClientId").value);
+}
+$("txClientId").addEventListener("input", updateAutoClientName);
+$("txClientId").addEventListener("change", updateAutoClientName);
+$("txClientId").addEventListener("blur", updateAutoClientName);
+
+$("txSearch").addEventListener("input", renderTx);
+$("txProdFilter").addEventListener("change", renderTx);
+
+$("cancelEditBtn").addEventListener("click", ()=>{
+  editId=null;
+  $("saveTxBtn").textContent="إضافة";
+  $("cancelEditBtn").style.display="none";
+  $("txClientId").value="";
+  $("txClientName").value="";
+  $("txReceipt").value="";
+  $("txAmount").value="";
+  $("txObs").value="";
+  $("txTime").value=nowTime();
+});
+
+$("saveTxBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(isClosed(day)) return alert("هذا اليوم مغلق. بدّل التاريخ أو افتح يوم جديد.");
+  const clientId=Number($("txClientId").value)||0;
+  const name=clientNameById(clientId);
+  const amount=Number($("txAmount").value)||0;
+  if(!clientId) return alert("دخل رقم الزبون.");
+  if(!name) return alert("الزبون غير موجود في القائمة.");
+  if(amount<=0) return alert("دخل مبلغ صحيح.");
+
+  const tx={
+    day,
+    date:$("txDate").value || day,
+    time:$("txTime").value || nowTime(),
+    clientId,
+    clientName:name,
+    receipt:($("txReceipt").value||"").trim(),
+    produit:$("txProduit").value,
+    mode:$("txMode").value,
+    amount:Math.round(amount),
+    obs:($("txObs").value||"").trim()
+  };
+
+  if(editId){
+    if(!requirePin("تعديل عملية")) return;
+    updateTx(editId, tx);
+    editId=null;
+    $("saveTxBtn").textContent="إضافة";
+    $("cancelEditBtn").style.display="none";
+  } else {
+    tx.id="tx_"+Date.now()+"_"+Math.floor(Math.random()*100000);
+    addTx(tx);
+  }
+
+  $("txClientId").value="";
+  $("txClientName").value="";
+  $("txReceipt").value="";
+  $("txAmount").value="";
+  $("txObs").value="";
+  $("txTime").value=nowTime();
+  renderAll();
+});
+
+$("clearDayTxBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(!requirePin("تصفير معاملات اليوم")) return;
+  if(confirm("تصفير معاملات اليوم؟")){
+    clearDayTx(day);
+    renderAll();
+  }
+});
+
+$("tabBEA").addEventListener("click", ()=>{ activeBank="BEA"; renderBordereau(); });
+$("tabCPA").addEventListener("click", ()=>{ activeBank="CPA"; renderBordereau(); });
+
+$("resetDenBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(!requirePin("تصفير الفئات")) return;
+  state.denoms[activeBank][day]={};
+  save();
+  renderBordereau();
+});
+
+$("newBordBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(!requirePin("Bordereau جديد")) return;
+  const no=nextBordNo(day, activeBank);
+  $("bNo").textContent=no;
+  alert("N° Bordereau: "+no);
+});
+
+function setCompanyInfo(elId){
+  const parts=[];
+  if(state.params.adresse) parts.push(state.params.adresse);
+  if(state.params.rc) parts.push("RC: "+state.params.rc);
+  if(state.params.nif) parts.push("NIF: "+state.params.nif);
+  $(elId).textContent = parts.join(" | ");
+}
+
+$("printBordBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(!requirePin("طباعة Bordereau")) return;
+
+  const s=computeDeposits(day);
+  const amount = activeBank==="BEA" ? s.depBEA : s.depCPA;
+  const no = $("bNo").textContent || currentBordNo(day, activeBank);
+  const color = bankColor(activeBank);
+
+  $("printReport").style.display="none";
+  $("printBord").style.display="";
+  $("p_bar").style.background=color;
+  $("p_bank").textContent=bankName(activeBank);
+  $("p_rib").textContent=bankRib(activeBank);
+  $("p_day").textContent=day;
+  $("p_no").textContent=no;
+  $("p_amount").textContent=fmt(amount);
+  $("p_words").textContent=amountToWordsDZD(amount);
+  setCompanyInfo("p_company_info");
+
+  const den=getDen(day, activeBank);
+  const rows=DENOMS.filter(d=>Number(den[d.key]||0)>0).map(d=>{
+    const qty=Number(den[d.key]||0);
+    const sub=qty*d.value;
+    const label=(d.value===200 && d.type==="Billet") ? "200 (papier)" : (d.value===200 && d.type==="Pièce" ? "200 (metal)" : String(d.value));
+    return `<tr><td>${d.type}</td><td>${label}</td><td>${qty}</td><td>${fmt(sub)}</td></tr>`;
+  }).join("");
+  const total=denomTotal(day, activeBank);
+  $("p_denoms").innerHTML = rows || `<tr><td colspan="4">—</td></tr>`;
+  $("p_den_total").textContent=fmt(total);
+
+  
+  // === Add encaissements list (Espèces only for this bank) ===
+  let allTx = txOfDay(day).filter(t => 
+      t.mode==="Espèces" && 
+      ((activeBank==="BEA" && t.produit==="EMP") || 
+       (activeBank==="CPA" && t.produit==="LCA"))
+  );
+  // sort by time
+  allTx = allTx.slice().sort((a,b)=> String(a.time||"").localeCompare(String(b.time||"")));
+if(document.getElementById("p_txs")){
+    const tbody = document.getElementById("p_txs");
+    tbody.innerHTML = allTx.map((t,i)=>`
+      <tr>
+        <td>${i+1}</td>
+        <td>${t.time}</td>
+        <td>${t.clientId}</td>
+        <td>${escapeHtml(t.clientName)}</td>
+        <td>${escapeHtml(t.receipt||"")}</td>
+        <td>${fmt(t.amount)}</td>
+      </tr>
+    `).join("") || `<tr><td colspan="6">—</td></tr>`;
+
+    const totalTx = allTx.reduce((s,t)=> s + (Number(t.amount)||0), 0);
+    const elTot = document.getElementById("p_txs_total");
+    const elCnt = document.getElementById("p_txs_count");
+    if(elTot) elTot.textContent = fmt(totalTx);
+    if(elCnt) elCnt.textContent = String(allTx.length);
+  }
+window.print();
+
+});
+
+$("printReportBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(!requirePin("طباعة Report")) return;
+
+  const list=txOfDay(day);
+  const s=computeDeposits(day);
+
+  $("printBord").style.display="none";
+  $("printReport").style.display="";
+  setCompanyInfo("r_company_info");
+
+  $("r_day").textContent=day;
+  $("r_status").textContent=isClosed(day) ? "Clôturé" : "Ouvert";
+  $("r_cash").textContent=fmt(s.cashTotal);
+  $("r_card").textContent=fmt(s.card);
+  $("r_cheque").textContent=fmt(s.cheque);
+  $("r_fond").textContent=fmt(s.fond);
+  $("r_bea").textContent=fmt(s.depBEA);
+  $("r_cpa").textContent=fmt(s.depCPA);
+
+  // Décaissements summary
+  $("r_dec_cash").textContent = fmt(s.decCash||0);
+  $("r_dec_all").textContent  = fmt(s.decAll||0);
+  const soldeCash = (s.cashTotal||0) - (s.decCash||0) - (s.depBEA||0) - (s.depCPA||0);
+  $("r_solde_cash").textContent = fmt(soldeCash);
+
+
+  $("r_txs").innerHTML = list.slice().reverse().map((t,i)=>`
+    <tr>
+      <td>${i+1}</td>
+      <td>${t.time}</td>
+      <td>${t.clientId}</td>
+      <td>${escapeHtml(t.clientName)}</td>
+      <td>${t.produit}</td>
+      <td>${escapeHtml(t.receipt||"")}</td>
+      <td>${t.mode}</td>
+      <td>${fmt(t.amount)}</td>
+    </tr>
+  `).join("") || `<tr><td colspan="8">—</td></tr>`;
+
+  
+  // === Add encaissements list (Espèces only for this bank) ===
+  const allTx = txOfDay(day).filter(t => 
+      t.mode==="Espèces" && 
+      ((activeBank==="BEA" && t.produit==="EMP") || 
+       (activeBank==="CPA" && t.produit==="LCA"))
+  );
+
+  if(document.getElementById("p_txs")){
+    document.getElementById("p_txs").innerHTML = allTx.map((t,i)=>`
+      <tr>
+        <td>${i+1}</td>
+        <td>${t.time}</td>
+        <td>${t.clientId}</td>
+        <td>${escapeHtml(t.clientName)}</td>
+        <td>${escapeHtml(t.receipt||"")}</td>
+        <td>${fmt(t.amount)}</td>
+      </tr>
+    `).join("") || `<tr><td colspan="6">—</td></tr>`;
+  }
+
+  
+  // Décaissements
+  const decs = decOfDay(day).slice().sort((a,b)=> String(a.time||"").localeCompare(String(b.time||"")));
+  if(document.getElementById("r_decs")){
+    const totalDecAll = decs.reduce((s,x)=> s + (Number(x.amount)||0), 0);
+    const elTotDec = document.getElementById("r_decs_total");
+    if(elTotDec) elTotDec.textContent = fmt(totalDecAll);
+
+    document.getElementById("r_decs").innerHTML = decs.map((d,i)=>`
+      <tr>
+        <td>${i+1}</td>
+        <td>${d.time}</td>
+        <td>${escapeHtml(d.label)}</td>
+        <td>${d.mode}</td>
+        <td>${fmt(d.amount)}</td>
+      </tr>
+    `).join("") || `<tr><td colspan="5">—</td></tr>`;
+  }
+
+window.print();
+
+});
+
+// === DECAISSEMENT EVENTS ===
+$("decSearch").addEventListener("input", renderDec);
+
+$("cancelDecEditBtn").addEventListener("click", ()=>{
+  editDecId=null;
+  $("saveDecBtn").textContent="إضافة";
+  $("cancelDecEditBtn").style.display="none";
+  $("decLabel").value="";
+  $("decAmount").value="";
+  $("decObs").value="";
+  $("decTime").value=nowTime();
+});
+
+$("saveDecBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(isClosed(day)) return alert("هذا اليوم مغلق. بدّل التاريخ أو افتح يوم جديد.");
+  const label=($("decLabel").value||"").trim();
+  const amount=Number($("decAmount").value)||0;
+  if(!label) return alert("دخل سبب / Libellé.");
+  if(amount<=0) return alert("دخل مبلغ صحيح.");
+
+  const dec={
+    day,
+    date:$("decDate").value || day,
+    time:$("decTime").value || nowTime(),
+    label,
+    mode:$("decMode").value,
+    amount:Math.round(amount),
+    obs:($("decObs").value||"").trim()
+  };
+
+  if(editDecId){
+    if(!requirePin("تعديل Décaissement")) return;
+    updateDec(editDecId, dec);
+    editDecId=null;
+    $("saveDecBtn").textContent="إضافة";
+    $("cancelDecEditBtn").style.display="none";
+  } else {
+    dec.id="dec_"+Date.now()+"_"+Math.floor(Math.random()*100000);
+    addDec(dec);
+  }
+
+  $("decLabel").value="";
+  $("decAmount").value="";
+  $("decObs").value="";
+  $("decTime").value=nowTime();
+  renderAll();
+});
+
+$("clearDayDecBtn").addEventListener("click", ()=>{
+  const day=state.params.day;
+  if(!requirePin("تصفير Décaissement اليوم")) return;
+  if(confirm("تصفير Décaissement اليوم؟")){
+    clearDayDec(day);
+    renderAll();
+  }
+});
+
+/* INIT */
+(function init(){
+  if(!state.params.day) state.params.day = nowDate();
+  loadTheme();
+  save();
+  renderAll();
+})();
+</script>
+
+</body>
+</html>
